@@ -1,0 +1,7 @@
+{
+  "name": "thirdweb Client SDK",
+  "description": "Client side TypeScript SDK and HTTP API to pay for x402 endpoints",
+  "url": "https://portal.thirdweb.com/payments/x402/client",
+  "category": "client-integrations",
+  "logo": null
+}
