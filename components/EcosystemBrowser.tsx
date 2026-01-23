@@ -54,7 +54,7 @@ export function EcosystemBrowser({ categoriesWithEntries }: EcosystemBrowserProp
               className={`w-full text-left px-3 py-2 rounded-lg text-sm transition-colors cursor-pointer ${
                 activeCategory === category.slug
                   ? "bg-accent/10 text-accent font-medium"
-                  : "text-text-muted hover:bg-[#18181B]"
+                  : "text-text-muted hover:bg-black/5 dark:hover:bg-white/5"
               }`}
             >
               {category.title}
