@@ -12,6 +12,7 @@ export type CategorySlug =
   | "client-integrations"
   | "services-endpoints"
   | "infrastructure-tooling"
+  | "facilitators"
   | "learning-community";
 
 /**
@@ -63,6 +64,11 @@ export const CATEGORIES: CategoryMeta[] = [
     slug: "infrastructure-tooling",
     title: "Infrastructure & Tooling",
     description: "Tools for building and operating x402-enabled services",
+  },
+  {
+    slug: "facilitators",
+    title: "Facilitators",
+    description: "Payment verification and settlement services for x402",
   },
   {
     slug: "learning-community",

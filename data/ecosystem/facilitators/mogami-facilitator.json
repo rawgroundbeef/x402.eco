@@ -1,0 +1,7 @@
+{
+  "name": "Mogami facilitator",
+  "description": "A free, developer-focused, production-ready facilitator for x402 payments. Use it instantly online, or launch your own Docker image in seconds.",
+  "url": "https://facilitator.mogami.tech",
+  "category": "facilitators",
+  "logo": null
+}
