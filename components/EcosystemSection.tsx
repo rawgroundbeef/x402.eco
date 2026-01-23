@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { getEntriesByCategory } from "@/lib/ecosystem";
 import { CATEGORIES, CategorySlug, EcosystemEntry } from "@/lib/types/ecosystem";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/FadeIn";
@@ -45,28 +46,46 @@ export function EcosystemSection() {
                     rel="noopener noreferrer"
                     className="block p-4 bg-card border border-border rounded-xl card-hover group"
                   >
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <h4 className="font-medium text-text group-hover:text-accent transition-colors">
-                          {entry.name}
-                        </h4>
+                    <div className="flex items-start gap-3">
+                      {/* Logo or fallback */}
+                      <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-card/50 border border-border flex items-center justify-center overflow-hidden">
+                        {entry.logo ? (
+                          <Image
+                            src={entry.logo}
+                            alt={`${entry.name} logo`}
+                            width={40}
+                            height={40}
+                            className="object-contain"
+                          />
+                        ) : (
+                          <span className="text-lg font-semibold text-text-muted">
+                            {entry.name.charAt(0).toUpperCase()}
+                          </span>
+                        )}
+                      </div>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex items-start justify-between">
+                          <h4 className="font-medium text-text group-hover:text-accent transition-colors">
+                            {entry.name}
+                          </h4>
+                          <svg
+                            className="w-4 h-4 text-text-muted group-hover:text-accent transition-colors flex-shrink-0 mt-1"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                            />
+                          </svg>
+                        </div>
                         <p className="text-sm text-text-muted mt-1">
                           {entry.description}
                         </p>
                       </div>
-                      <svg
-                        className="w-4 h-4 text-text-muted group-hover:text-accent transition-colors flex-shrink-0 mt-1"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                      </svg>
                     </div>
                   </a>
                 ))}
