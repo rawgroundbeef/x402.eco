@@ -9,10 +9,10 @@ Requirements for PR-Submittable Ecosystem milestone.
 
 ### Data Structure
 
-- [ ] **DATA-01**: Ecosystem entries stored as individual JSON/YAML files
-- [ ] **DATA-02**: Each entry contains: name, description, url, category, logo path
-- [ ] **DATA-03**: Directory structure: `data/ecosystem/{category}/{entry-slug}.json`
-- [ ] **DATA-04**: TypeScript types generated/validated from schema
+- [x] **DATA-01**: Ecosystem entries stored as individual JSON/YAML files
+- [x] **DATA-02**: Each entry contains: name, description, url, category, logo path
+- [x] **DATA-03**: Directory structure: `data/ecosystem/{category}/{entry-slug}.json`
+- [x] **DATA-04**: TypeScript types generated/validated from schema
 
 ### Ecosystem Display
 
@@ -72,10 +72,10 @@ Deferred to later milestones.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DATA-01 | Phase 1 | Pending |
-| DATA-02 | Phase 1 | Pending |
-| DATA-03 | Phase 1 | Pending |
-| DATA-04 | Phase 1 | Pending |
+| DATA-01 | Phase 1 | Complete |
+| DATA-02 | Phase 1 | Complete |
+| DATA-03 | Phase 1 | Complete |
+| DATA-04 | Phase 1 | Complete |
 | ECO-01 | Phase 2 | Pending |
 | ECO-02 | Phase 2 | Pending |
 | ECO-03 | Phase 2 | Pending |
@@ -100,4 +100,4 @@ Deferred to later milestones.
 
 ---
 *Requirements defined: 2026-01-23*
-*Last updated: 2026-01-23 after roadmap creation*
+*Last updated: 2026-01-23 after Phase 1 completion*
