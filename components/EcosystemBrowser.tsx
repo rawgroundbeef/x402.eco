@@ -97,27 +97,44 @@ export function EcosystemBrowser({ categoriesWithEntries }: EcosystemBrowserProp
                 rel="noopener noreferrer"
                 className="block p-4 bg-card border border-border rounded-xl hover:border-accent/50 transition-colors group"
               >
-                <div className="flex items-start justify-between">
-                  <h4 className="font-medium text-text group-hover:text-accent transition-colors">
-                    {entry.name}
-                  </h4>
-                  <svg
-                    className="w-4 h-4 text-text-muted group-hover:text-accent transition-colors flex-shrink-0 mt-0.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                <div className="flex items-start gap-3">
+                  {entry.logo ? (
+                    <img
+                      src={entry.logo}
+                      alt={`${entry.name} logo`}
+                      className="w-10 h-10 rounded-lg object-contain flex-shrink-0 bg-white/5"
                     />
-                  </svg>
+                  ) : (
+                    <div className="w-10 h-10 rounded-lg bg-accent/10 flex items-center justify-center flex-shrink-0">
+                      <span className="text-accent font-medium text-sm">
+                        {entry.name.charAt(0).toUpperCase()}
+                      </span>
+                    </div>
+                  )}
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between">
+                      <h4 className="font-medium text-text group-hover:text-accent transition-colors">
+                        {entry.name}
+                      </h4>
+                      <svg
+                        className="w-4 h-4 text-text-muted group-hover:text-accent transition-colors flex-shrink-0 mt-0.5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
+                      </svg>
+                    </div>
+                    <p className="text-sm text-text-muted mt-1 line-clamp-2">
+                      {entry.description}
+                    </p>
+                  </div>
                 </div>
-                <p className="text-sm text-text-muted mt-1 line-clamp-2">
-                  {entry.description}
-                </p>
               </a>
             ))}
           </div>

@@ -3,5 +3,5 @@
   "description": "Read tweets onchain powered by x402, MCP & CDP Smart Wallets",
   "url": "https://github.com/aaronjmars/tweazy",
   "category": "client-integrations",
-  "logo": null
+  "logo": "/logos/tweazy.png"
 }

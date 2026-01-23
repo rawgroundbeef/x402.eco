@@ -1,0 +1,7 @@
+{
+  "name": "AutoIncentive Facilitator",
+  "description": "Free, public x402 facilitator for Base and Solana. Full verify + settle flow with on-chain USDC transfers. No API keys required.",
+  "url": "https://autoincentive.online",
+  "category": "facilitators",
+  "logo": "/logos/autoincentive.png"
+}

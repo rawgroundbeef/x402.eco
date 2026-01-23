@@ -3,5 +3,5 @@
   "description": "Pay-as-you-go AI gateway for ChatGPT and major LLMs via x402 on Base",
   "url": "https://blockrun.ai",
   "category": "services-endpoints",
-  "logo": null
+  "logo": "/logos/blockrun.png"
 }

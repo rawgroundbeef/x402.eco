@@ -1,0 +1,7 @@
+{
+  "name": "SolPay",
+  "description": "Solana x402 facilitator powering crypto payments for storefronts and APIs. USDC settlements with sub-second finality, trustless escrow, and WooCommerce integration.",
+  "url": "https://solpay.cash",
+  "category": "facilitators",
+  "logo": "/logos/solpay.png"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "xEcho Facilitator",
+  "description": "xEcho Facilitator implements on-chain settlement callbacks, enabling on-chain post-payment programmability to support pay-to-earn and outcome-based payment scenarios.",
+  "url": "https://www.xechoai.xyz",
+  "category": "facilitators",
+  "logo": "/logos/xecho.png"
+}

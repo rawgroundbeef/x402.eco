@@ -3,5 +3,5 @@
   "description": "Independent, open-source facilitator in Rust. Easy to self-host, extend to new networks, or use via our hosted instance.",
   "url": "https://facilitator.x402.rs",
   "category": "facilitators",
-  "logo": null
+  "logo": "/logos/x402-rs.svg"
 }

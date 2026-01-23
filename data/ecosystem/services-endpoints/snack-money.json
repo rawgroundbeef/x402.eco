@@ -3,5 +3,5 @@
   "description": "Micropayment platform for X, Farcaster, baseapp",
   "url": "https://api.snack.money/docs",
   "category": "services-endpoints",
-  "logo": null
+  "logo": "/logos/snackmoney.png"
 }

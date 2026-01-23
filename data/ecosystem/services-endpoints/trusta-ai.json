@@ -3,5 +3,5 @@
   "description": "Attestation integration supporting x402 USDC payments on Base",
   "url": "https://app.trustalabs.ai/attest",
   "category": "services-endpoints",
-  "logo": null
+  "logo": "/logos/trustalabs.svg"
 }

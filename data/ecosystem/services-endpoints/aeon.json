@@ -3,5 +3,5 @@
   "description": "Omnichain settlement layer enabling AI agents to pay merchants via x402",
   "url": "https://aeon.xyz/AIPayment",
   "category": "services-endpoints",
-  "logo": null
+  "logo": "/logos/aeon.png"
 }

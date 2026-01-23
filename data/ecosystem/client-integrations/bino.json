@@ -3,5 +3,5 @@
   "description": "Autonomous AI agent framework consuming x402 paywalled services",
   "url": "https://github.com/iotexproject/binoSwarm/tree/main/packages/plugin-swarm",
   "category": "client-integrations",
-  "logo": null
+  "logo": "/logos/bino.png"
 }

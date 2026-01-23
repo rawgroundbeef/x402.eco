@@ -3,5 +3,5 @@
   "description": "Unified API enabling x402-funded tipping to anyone on internet",
   "url": "https://grove.city/api",
   "category": "services-endpoints",
-  "logo": null
+  "logo": "/logos/grove-api-logo.png"
 }

@@ -3,5 +3,5 @@
   "description": "x402 payment wallet for instant micropayments, trusted checkout flows",
   "url": "https://1pay.ing",
   "category": "client-integrations",
-  "logo": null
+  "logo": "/logos/1pay.png"
 }

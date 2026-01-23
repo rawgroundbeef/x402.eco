@@ -3,5 +3,5 @@
   "description": "Production gateway enabling AI agents to pay for database queries",
   "url": "https://serendb.com",
   "category": "services-endpoints",
-  "logo": null
+  "logo": "/logos/serenai.png"
 }

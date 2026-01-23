@@ -3,5 +3,5 @@
   "description": "x402 enabled LLM inference supporting all major providers",
   "url": "https://router.daydreams.systems",
   "category": "infrastructure-tooling",
-  "logo": null
+  "logo": "/logos/router-logo.png"
 }

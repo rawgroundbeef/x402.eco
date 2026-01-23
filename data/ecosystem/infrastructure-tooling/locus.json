@@ -3,5 +3,5 @@
   "description": "MCP-enabled wallet with agent spending control and auto-generated tools",
   "url": "https://paywithlocus.com",
   "category": "infrastructure-tooling",
-  "logo": null
+  "logo": "/logos/locus.png"
 }

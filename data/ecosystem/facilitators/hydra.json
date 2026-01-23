@@ -1,0 +1,7 @@
+{
+  "name": "Hydra Protocol Facilitator",
+  "description": "A permissionless network of independent nodes that collectively perform the facilitator's role. Nodes collaborate to fulfill requests in exchange for fees.",
+  "url": "https://hydraprotocol.org/",
+  "category": "facilitators",
+  "logo": "/logos/hydra-protocol.png"
+}

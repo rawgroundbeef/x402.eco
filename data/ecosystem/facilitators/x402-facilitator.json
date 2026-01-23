@@ -3,5 +3,5 @@
   "description": "Default testnet facilitator for x402",
   "url": "https://x402.org",
   "category": "facilitators",
-  "logo": null
+  "logo": "/logos/x402-logo.png"
 }

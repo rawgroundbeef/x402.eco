@@ -3,5 +3,5 @@
   "description": "DeFi API endpoints with x402 micropayments for portfolio and yield data",
   "url": "https://x402.heyelsa.ai",
   "category": "services-endpoints",
-  "logo": null
+  "logo": "/logos/elsa-x402.png"
 }
