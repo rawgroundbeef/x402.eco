@@ -28,10 +28,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. Each entry JSON contains name, description, url, category, and logo path fields
   3. TypeScript types are generated or validated from schema
   4. Directory structure supports 4 ecosystem categories
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] TBD
+- [ ] 01-01-PLAN.md — Schema, types, directory structure, and sample JSON entries
+- [ ] 01-02-PLAN.md — Data loader utility to read JSON files at build time
 
 ### Phase 2: Ecosystem Display
 **Goal**: Ecosystem grid renders entries from JSON files across all categories
@@ -85,7 +86,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Data Structure | 0/TBD | Not started | - |
+| 1. Data Structure | 0/2 | Planned | - |
 | 2. Ecosystem Display | 0/TBD | Not started | - |
 | 3. Logo Management & Content Population | 0/TBD | Not started | - |
 | 4. Contributor Experience | 0/TBD | Not started | - |
