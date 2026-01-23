@@ -44,10 +44,10 @@ Plans:
   3. Infrastructure & Tooling category displays correctly from JSON files
   4. Learning & Community category displays correctly from JSON files
   5. Ecosystem grid component loads and renders entries from file system
-**Plans**: TBD
+**Plans**: 1 plan
 
 Plans:
-- [ ] TBD
+- [ ] 02-01-PLAN.md — Server component integration for ecosystem display
 
 ### Phase 3: Logo Management & Content Population
 **Goal**: All x402.org ecosystem entries populated with local logos
@@ -82,11 +82,11 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Data Structure | 2/2 | Complete | 2026-01-23 |
-| 2. Ecosystem Display | 0/TBD | Not started | - |
+| 2. Ecosystem Display | 0/1 | In Progress | - |
 | 3. Logo Management & Content Population | 0/TBD | Not started | - |
 | 4. Contributor Experience | 0/TBD | Not started | - |
