@@ -374,12 +374,12 @@ export default function Home() {
                 </p>
                 <div className="space-y-3">
                   <a
-                    href="https://discord.gg/NEjcdYTN"
+                    href="https://x.com/x402eco"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm text-gray hover:text-accent transition-colors"
                   >
-                    <span>Discord</span>
+                    <span>X</span>
                     <svg
                       className="w-3 h-3"
                       fill="none"
@@ -395,12 +395,12 @@ export default function Home() {
                     </svg>
                   </a>
                   <a
-                    href="https://x.com/x402eco"
+                    href="https://discord.gg/NEjcdYTN"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center gap-2 text-sm text-gray hover:text-accent transition-colors"
                   >
-                    <span>X</span>
+                    <span>Discord</span>
                     <svg
                       className="w-3 h-3"
                       fill="none"
