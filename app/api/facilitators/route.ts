@@ -1,9 +1,5 @@
 import { NextResponse } from 'next/server';
-
-interface CacheEntry {
-  data: AlliumResponse;
-  timestamp: number;
-}
+import { Redis } from '@upstash/redis';
 
 interface AlliumRow {
   ts: string;
@@ -17,18 +13,58 @@ interface AlliumResponse {
   data: AlliumRow[];
 }
 
-let cache: CacheEntry | null = null;
-const CACHE_TTL = 60 * 60 * 1000; // 1 hour
+interface CachedData {
+  data: AlliumResponse;
+  timestamp: number;
+}
+
+const CACHE_KEY = 'facilitators-data';
+const CACHE_TTL = 60 * 60; // 1 hour in seconds
 
 const ALLIUM_ENDPOINT = 'https://api.allium.so/api/v1/explorer/queries/tZrCe3GI79Yym6eG0glp/run';
 
+// Initialize Redis client (lazy - only if env vars are set)
+function getRedis(): Redis | null {
+  const url = process.env.KV_REST_API_URL || process.env.UPSTASH_REDIS_REST_URL;
+  const token = process.env.KV_REST_API_TOKEN || process.env.UPSTASH_REDIS_REST_TOKEN;
+
+  if (!url || !token) {
+    return null;
+  }
+  return new Redis({ url, token });
+}
+
+// In-memory fallback cache (for local dev or if Redis unavailable)
+let memoryCache: CachedData | null = null;
+
 export async function GET() {
-  // Return cache if fresh
-  if (cache && Date.now() - cache.timestamp < CACHE_TTL) {
-    return NextResponse.json(cache.data, {
+  const redis = getRedis();
+
+  // Try to get from Redis cache first
+  if (redis) {
+    try {
+      const cached = await redis.get<CachedData>(CACHE_KEY);
+      if (cached && Date.now() - cached.timestamp < CACHE_TTL * 1000) {
+        return NextResponse.json(cached.data, {
+          headers: {
+            'X-Cache': 'HIT',
+            'X-Cache-Source': 'redis',
+            'X-Cache-Age': String(Math.floor((Date.now() - cached.timestamp) / 1000)),
+          },
+        });
+      }
+    } catch (e) {
+      console.error('Redis read error:', e);
+    }
+  }
+
+  // Fallback to memory cache
+  if (memoryCache && Date.now() - memoryCache.timestamp < CACHE_TTL * 1000) {
+    return NextResponse.json(memoryCache.data, {
       headers: {
         'X-Cache': 'HIT',
-        'X-Cache-Age': String(Math.floor((Date.now() - cache.timestamp) / 1000)),
+        'X-Cache-Source': 'memory',
+        'X-Cache-Age': String(Math.floor((Date.now() - memoryCache.timestamp) / 1000)),
       },
     });
   }
@@ -38,8 +74,8 @@ export async function GET() {
   if (!apiKey) {
     console.error('ALLIUM_API_KEY environment variable is not set');
     // Return stale cache if available
-    if (cache) {
-      return NextResponse.json(cache.data, {
+    if (memoryCache) {
+      return NextResponse.json(memoryCache.data, {
         headers: {
           'X-Cache': 'STALE',
           'X-Cache-Reason': 'missing-api-key',
@@ -73,7 +109,19 @@ export async function GET() {
       throw new Error('Invalid response structure from Allium API');
     }
 
-    cache = { data, timestamp: Date.now() };
+    const cacheEntry: CachedData = { data, timestamp: Date.now() };
+
+    // Store in Redis
+    if (redis) {
+      try {
+        await redis.set(CACHE_KEY, cacheEntry, { ex: CACHE_TTL });
+      } catch (e) {
+        console.error('Redis write error:', e);
+      }
+    }
+
+    // Also store in memory as fallback
+    memoryCache = cacheEntry;
 
     return NextResponse.json(data, {
       headers: {
@@ -83,11 +131,30 @@ export async function GET() {
   } catch (error) {
     console.error('Failed to fetch from Allium:', error);
 
-    // Return stale cache if available
-    if (cache) {
-      return NextResponse.json(cache.data, {
+    // Try Redis stale cache
+    if (redis) {
+      try {
+        const stale = await redis.get<CachedData>(CACHE_KEY);
+        if (stale) {
+          return NextResponse.json(stale.data, {
+            headers: {
+              'X-Cache': 'STALE',
+              'X-Cache-Source': 'redis',
+              'X-Cache-Reason': 'fetch-error',
+            },
+          });
+        }
+      } catch (e) {
+        console.error('Redis stale read error:', e);
+      }
+    }
+
+    // Fallback to memory stale cache
+    if (memoryCache) {
+      return NextResponse.json(memoryCache.data, {
         headers: {
           'X-Cache': 'STALE',
+          'X-Cache-Source': 'memory',
           'X-Cache-Reason': 'fetch-error',
         },
       });
