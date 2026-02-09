@@ -2,6 +2,7 @@ import { Logo } from "@/components/Logo";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { FadeIn, FadeInStagger, FadeInStaggerItem } from "@/components/FadeIn";
 import { EcosystemSection } from "@/components/EcosystemSection";
+import { HeroChainStrip } from "@/components/PartnerLogos";
 import {
   HomeClientProvider,
   EducationalDialogContainer,
@@ -26,14 +27,14 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-4 md:px-8 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Logo size="sm" />
-            <span className="text-2xl text-text leading-none translate-y-[1px]" style={{ fontFamily: "var(--font-display), 'Bebas Neue', sans-serif", letterSpacing: "2px" }}>x402</span>
+            <span className="text-2xl text-text leading-none translate-y-[1px] lowercase" style={{ fontFamily: "var(--font-display), 'Bebas Neue', sans-serif", letterSpacing: "2px" }}>x402</span>
           </div>
           <div className="flex items-center gap-6">
-            <nav className="hidden md:flex items-center gap-6">
-              <a href="#ecosystem" className="text-sm text-gray hover:text-white transition-colors">
+            <nav className="hidden md:flex items-center gap-6 font-mono">
+              <a href="#ecosystem" className="text-sm text-gray hover:text-accent transition-colors">
                 Ecosystem
               </a>
-              <a href="#facilitators" className="text-sm text-gray hover:text-white transition-colors">
+              <a href="#facilitators" className="text-sm text-gray hover:text-accent transition-colors">
                 Facilitators
               </a>
             </nav>
@@ -64,16 +65,25 @@ export default function Home() {
               </h1>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <p className="text-lg md:text-xl text-gray leading-relaxed mb-10 text-balance max-w-2xl mx-auto">
+              <p className="font-mono text-base md:text-lg text-gray leading-relaxed mb-10 text-balance max-w-2xl mx-auto">
                 x402 enables AI agents to autonomously pay for resources and
                 services across the internet. No API keys. No subscriptions.
                 Just seamless, pay-per-use access to any monetized endpoint.
               </p>
             </FadeIn>
-            <HeroInfoButtons />
+            <FadeIn delay={0.15}>
+              <HeroChainStrip />
+            </FadeIn>
             <FadeIn delay={0.2}>
-              <div className="mt-12">
+              <div className="mt-8">
                 <StatsBar />
+              </div>
+            </FadeIn>
+            <FadeIn delay={0.25}>
+              <div className="scroll-hint mt-12 pt-12 border-t border-border text-center">
+                <span className="font-mono text-[11px] tracking-[0.5px] text-gray-dim">
+                  ↓ Ecosystem, Facilitators, etc. continue below ↓
+                </span>
               </div>
             </FadeIn>
           </div>

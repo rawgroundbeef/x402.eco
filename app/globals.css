@@ -65,7 +65,7 @@ html {
 }
 
 body {
-  font-family: var(--font-sans), 'Instrument Sans', system-ui, sans-serif;
+  font-family: var(--font-mono), 'DM Mono', monospace;
   font-size: 15px;
   line-height: 1.75;
   background-color: var(--color-background);
@@ -112,6 +112,29 @@ body::after {
 /* Header border light mode */
 .light header {
   border-color: #E5E5E3 !important;
+}
+
+/* Chain divider bar */
+.chain-divider-bar {
+  background-color: #1a1a1e;
+}
+.light .chain-divider-bar {
+  background-color: #f2f2ee;
+  border-color: #e5e5e0 !important;
+}
+
+/* Scroll hint */
+.scroll-hint {
+  border-color: #2a2a30;
+}
+.scroll-hint span {
+  color: #555;
+}
+.light .scroll-hint {
+  border-color: #e5e5e0;
+}
+.light .scroll-hint span {
+  color: #ccc;
 }
 
 .bg-card { background-color: var(--color-card); }
