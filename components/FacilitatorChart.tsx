@@ -29,11 +29,13 @@ export function FacilitatorChart({ facilitator }: FacilitatorChartProps) {
     transactions: value,
   }));
 
-  const isDark = mounted && resolvedTheme === "dark";
-  const accentColor = isDark ? "#14B8A6" : "#0D9488";
-  const mutedColor = isDark ? "#A1A1AA" : "#71717A";
-  const tooltipBg = isDark ? "#18181B" : "#FAFAF9";
-  const tooltipBorder = isDark ? "#27272A" : "#E5E5E3";
+  const isDark = !mounted || resolvedTheme === "dark";
+  // Lime accent color for the new design
+  const accentColor = isDark ? "#c8ff00" : "#a8d900";
+  const mutedColor = isDark ? "#8a8a8e" : "#71717A";
+  const tooltipBg = isDark ? "#1a1a1e" : "#FAFAF9";
+  const tooltipBorder = isDark ? "#27272d" : "#E5E5E3";
+  const tooltipText = isDark ? "#ededeb" : "#18181B";
 
   return (
     <div className="w-full h-[200px]">
@@ -43,7 +45,7 @@ export function FacilitatorChart({ facilitator }: FacilitatorChartProps) {
           margin={{ top: 10, right: 10, left: -20, bottom: 0 }}
         >
           <defs>
-            <linearGradient id={`facilitatorGradient-${mounted ? resolvedTheme : 'light'}`} x1="0" y1="0" x2="0" y2="1">
+            <linearGradient id={`facilitatorGradient-${mounted ? resolvedTheme : 'dark'}`} x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor={accentColor} stopOpacity={0.4} />
               <stop offset="50%" stopColor={accentColor} stopOpacity={0.15} />
               <stop offset="100%" stopColor={accentColor} stopOpacity={0} />
@@ -53,7 +55,7 @@ export function FacilitatorChart({ facilitator }: FacilitatorChartProps) {
             dataKey="day"
             axisLine={false}
             tickLine={false}
-            tick={{ fill: mutedColor, fontSize: 11 }}
+            tick={{ fill: mutedColor, fontSize: 11, fontFamily: "var(--font-mono)" }}
             tickFormatter={(value) => {
               const day = parseInt(value.replace("Day ", ""));
               if (day === 1 || day === 15 || day === 30) {
@@ -65,7 +67,7 @@ export function FacilitatorChart({ facilitator }: FacilitatorChartProps) {
           <YAxis
             axisLine={false}
             tickLine={false}
-            tick={{ fill: mutedColor, fontSize: 11 }}
+            tick={{ fill: mutedColor, fontSize: 11, fontFamily: "var(--font-mono)" }}
             tickFormatter={(value) => {
               if (value >= 1000) {
                 return `${(value / 1000).toFixed(0)}K`;
@@ -80,7 +82,8 @@ export function FacilitatorChart({ facilitator }: FacilitatorChartProps) {
               borderRadius: "8px",
               fontSize: "13px",
               padding: "8px 12px",
-              boxShadow: "0 4px 20px rgba(0, 0, 0, 0.12)",
+              boxShadow: "0 4px 20px rgba(0, 0, 0, 0.2)",
+              color: tooltipText,
             }}
             labelStyle={{ color: mutedColor, marginBottom: "4px" }}
             formatter={(value) => [
@@ -93,7 +96,7 @@ export function FacilitatorChart({ facilitator }: FacilitatorChartProps) {
             dataKey="transactions"
             stroke={accentColor}
             strokeWidth={2}
-            fill={`url(#facilitatorGradient-${mounted ? resolvedTheme : 'light'})`}
+            fill={`url(#facilitatorGradient-${mounted ? resolvedTheme : 'dark'})`}
             animationDuration={800}
           />
         </AreaChart>

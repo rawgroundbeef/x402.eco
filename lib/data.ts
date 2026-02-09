@@ -16,11 +16,6 @@ export const stats = {
     change: "+12.3%",
     positive: true,
   },
-  activeResources: {
-    value: "1,847",
-    change: "+89",
-    positive: true,
-  },
   transactions24h: {
     value: "142K",
     change: "+8.7%",
