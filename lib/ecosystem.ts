@@ -61,7 +61,8 @@ export function getEntriesByCategory(category: CategorySlug): EcosystemEntry[] {
     return [];
   }
 
-  return entries;
+  // Sort alphabetically by name
+  return entries.sort((a, b) => a.name.localeCompare(b.name));
 }
 
 /**

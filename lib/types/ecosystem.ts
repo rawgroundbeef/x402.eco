@@ -41,6 +41,8 @@ export interface CategoryMeta {
   slug: CategorySlug;
   /** Human-readable title for display */
   title: string;
+  /** Short title for horizontal tab display */
+  shortTitle: string;
   /** Brief description of the category */
   description: string;
 }
@@ -52,27 +54,32 @@ export const CATEGORIES: CategoryMeta[] = [
   {
     slug: "client-integrations",
     title: "Client-Side Integrations",
+    shortTitle: "CLIENT-SIDE",
     description:
       "Libraries and SDKs for integrating x402 payments into applications",
   },
   {
     slug: "services-endpoints",
     title: "Services & Endpoints",
+    shortTitle: "SERVICES",
     description: "APIs and services that accept x402 payments",
   },
   {
     slug: "infrastructure-tooling",
     title: "Infrastructure & Tooling",
+    shortTitle: "INFRASTRUCTURE",
     description: "Tools for building and operating x402-enabled services",
   },
   {
     slug: "facilitators",
     title: "Facilitators",
+    shortTitle: "FACILITATORS",
     description: "Payment verification and settlement services for x402",
   },
   {
     slug: "learning-community",
     title: "Learning & Community",
+    shortTitle: "LEARNING",
     description: "Documentation, tutorials, and community resources",
   },
 ];

@@ -31,10 +31,10 @@ export default function Home() {
           </div>
           <div className="flex items-center gap-6">
             <nav className="hidden md:flex items-center gap-6 font-mono">
-              <a href="#ecosystem" className="text-sm text-gray hover:text-accent transition-colors">
+              <a href="#ecosystem" className="text-sm text-cream hover:text-accent transition-colors">
                 Ecosystem
               </a>
-              <a href="#facilitators" className="text-sm text-gray hover:text-accent transition-colors">
+              <a href="#facilitators" className="text-sm text-cream hover:text-accent transition-colors">
                 Facilitators
               </a>
             </nav>
@@ -65,7 +65,7 @@ export default function Home() {
               </h1>
             </FadeIn>
             <FadeIn delay={0.1}>
-              <p className="font-mono text-base md:text-lg text-gray leading-relaxed mb-10 text-balance max-w-2xl mx-auto">
+              <p className="font-mono text-base md:text-lg text-cream leading-relaxed mb-10 text-balance max-w-2xl mx-auto">
                 x402 enables AI agents to autonomously pay for resources and
                 services across the internet. No API keys. No subscriptions.
                 Just seamless, pay-per-use access to any monetized endpoint.
