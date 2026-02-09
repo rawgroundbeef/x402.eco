@@ -153,3 +153,65 @@ export function getSparklineData(dailyData: DailyDataPoint[]): number[] {
 export function getTransactionSparklineData(dailyData: DailyDataPoint[]): number[] {
   return dailyData.map((d) => d.transactions);
 }
+
+/**
+ * Stats bar data derived from Allium rows
+ */
+export interface StatsBarData {
+  totalVolume: number;
+  totalTransactions: number;
+  facilitatorCount: number;
+  volumeDelta: number | null;      // percentage, e.g. 12.3
+  txnDelta: number | null;         // percentage
+  facilitatorDelta: number | null; // absolute change, e.g. +2
+}
+
+/**
+ * Derive stats bar data from raw Allium rows
+ * Compares last 30 days vs prior 30 days for deltas
+ *
+ * @param rows - Raw rows from Allium API
+ * @returns StatsBarData with totals and deltas
+ */
+export function deriveStatsBar(rows: AlliumRow[]): StatsBarData {
+  const now = new Date();
+  const thirtyDaysAgo = new Date(now.getTime() - 30 * 86400000);
+  const sixtyDaysAgo = new Date(now.getTime() - 60 * 86400000);
+
+  const recent = rows.filter(r => new Date(r.ts) >= thirtyDaysAgo);
+  const prior = rows.filter(r => {
+    const d = new Date(r.ts);
+    return d >= sixtyDaysAgo && d < thirtyDaysAgo;
+  });
+
+  const totalVolume = recent.reduce((s, r) => s + r.volume, 0);
+  const totalTransactions = recent.reduce((s, r) => s + r.transactions, 0);
+  const facilitatorCount = new Set(recent.map(r => r.facilitator)).size;
+
+  const priorVolume = prior.reduce((s, r) => s + r.volume, 0);
+  const priorTxns = prior.reduce((s, r) => s + r.transactions, 0);
+  const priorFacilitators = new Set(prior.map(r => r.facilitator)).size;
+
+  const pctDelta = (curr: number, prev: number): number | null =>
+    prev > 0 ? parseFloat(((curr - prev) / prev * 100).toFixed(1)) : null;
+
+  return {
+    totalVolume,
+    totalTransactions,
+    facilitatorCount,
+    volumeDelta: pctDelta(totalVolume, priorVolume),
+    txnDelta: pctDelta(totalTransactions, priorTxns),
+    facilitatorDelta: priorFacilitators > 0 ? facilitatorCount - priorFacilitators : null,
+  };
+}
+
+/**
+ * Format a count (transactions, facilitators) as a string
+ * @param n - Count number
+ * @returns Formatted string like "1.2M", "142K", or "12"
+ */
+export function formatCount(n: number): string {
+  if (n >= 1_000_000) return `${(n / 1_000_000).toFixed(1)}M`;
+  if (n >= 1_000) return `${(n / 1_000).toFixed(0)}K`;
+  return n.toString();
+}
