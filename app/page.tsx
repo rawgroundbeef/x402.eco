@@ -283,12 +283,12 @@ export default function Home() {
               </p>
               <div className="space-y-3">
                 <a
-                  href="https://github.com/anthropics/x402-server"
+                  href="https://docs.x402.org/getting-started/quickstart-for-sellers"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-gray hover:text-accent transition-colors"
                 >
-                  <span>Server SDK</span>
+                  <span>Quickstart for Sellers</span>
                   <svg
                     className="w-3 h-3"
                     fill="none"
@@ -304,12 +304,12 @@ export default function Home() {
                   </svg>
                 </a>
                 <a
-                  href="https://x402jobs.com"
+                  href="https://github.com/coinbase/x402"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-gray hover:text-accent transition-colors"
                 >
-                  <span>List on x402jobs</span>
+                  <span>GitHub</span>
                   <svg
                     className="w-3 h-3"
                     fill="none"
@@ -325,12 +325,12 @@ export default function Home() {
                   </svg>
                 </a>
                 <a
-                  href="https://openfacilitator.xyz"
+                  href="https://docs.x402.org"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-2 text-sm text-gray hover:text-accent transition-colors"
                 >
-                  <span>OpenFacilitator</span>
+                  <span>Documentation</span>
                   <svg
                     className="w-3 h-3"
                     fill="none"
@@ -343,8 +343,8 @@ export default function Home() {
                       strokeWidth={2}
                       d="M9 5l7 7-7 7"
                     />
-                    </svg>
-                  </a>
+                  </svg>
+                </a>
                 </div>
               </div>
             </FadeInStaggerItem>
