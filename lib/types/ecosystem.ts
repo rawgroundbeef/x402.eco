@@ -66,6 +66,18 @@ export interface CategoryMeta {
  */
 export const CATEGORIES: CategoryMeta[] = [
   {
+    slug: "people",
+    title: "People",
+    shortTitle: "PEOPLE",
+    description: "Key builders, contributors, and advocates in the x402 network",
+  },
+  {
+    slug: "skills",
+    title: "Skills",
+    shortTitle: "SKILLS",
+    description: "Installable agent skills for building with x402",
+  },
+  {
     slug: "client-integrations",
     title: "Client-Side Integrations",
     shortTitle: "CLIENT-SIDE",
@@ -95,17 +107,5 @@ export const CATEGORIES: CategoryMeta[] = [
     title: "Learning & Community",
     shortTitle: "LEARNING",
     description: "Documentation, tutorials, and community resources",
-  },
-  {
-    slug: "skills",
-    title: "Skills",
-    shortTitle: "SKILLS",
-    description: "Installable agent skills for building with x402",
-  },
-  {
-    slug: "people",
-    title: "People",
-    shortTitle: "PEOPLE",
-    description: "Key builders, contributors, and advocates in the x402 network",
   },
 ];

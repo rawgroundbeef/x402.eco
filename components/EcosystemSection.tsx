@@ -29,17 +29,17 @@ export function EcosystemSection() {
 
   const skillsCategory = CATEGORIES.find((c) => c.slug === "skills")!;
   if (skillEntries.length > 0) {
-    categoriesWithEntries.push({
+    categoriesWithEntries.unshift({
       category: skillsCategory,
       entries: skillEntries,
     });
   }
 
-  // Build the People tab from its own directory
+  // Build the People tab from its own directory (first tab)
   const peopleCategory = CATEGORIES.find((c) => c.slug === "people")!;
   const peopleEntries = getEntriesByCategory("people");
   if (peopleEntries.length > 0) {
-    categoriesWithEntries.push({
+    categoriesWithEntries.unshift({
       category: peopleCategory,
       entries: peopleEntries,
     });
