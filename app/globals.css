@@ -527,9 +527,11 @@ h4, h5, h6 {
 }
 
 .marquee-row {
-  overflow: hidden;
+  overflow-x: clip;
+  overflow-y: visible;
   position: relative;
-  margin-bottom: 16px;
+  padding: 6px 0;
+  margin-bottom: 4px;
 }
 
 .marquee-row:last-child {
