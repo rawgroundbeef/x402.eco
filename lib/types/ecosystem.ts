@@ -78,6 +78,18 @@ export const CATEGORIES: CategoryMeta[] = [
     description: "Installable agent skills for building with x402",
   },
   {
+    slug: "facilitators",
+    title: "Facilitators",
+    shortTitle: "FACILITATORS",
+    description: "Payment verification and settlement services for x402",
+  },
+  {
+    slug: "learning-community",
+    title: "Learning & Community",
+    shortTitle: "LEARNING",
+    description: "Documentation, tutorials, and community resources",
+  },
+  {
     slug: "client-integrations",
     title: "Client-Side Integrations",
     shortTitle: "CLIENT-SIDE",
@@ -95,17 +107,5 @@ export const CATEGORIES: CategoryMeta[] = [
     title: "Infrastructure & Tooling",
     shortTitle: "INFRASTRUCTURE",
     description: "Tools for building and operating x402-enabled services",
-  },
-  {
-    slug: "facilitators",
-    title: "Facilitators",
-    shortTitle: "FACILITATORS",
-    description: "Payment verification and settlement services for x402",
-  },
-  {
-    slug: "learning-community",
-    title: "Learning & Community",
-    shortTitle: "LEARNING",
-    description: "Documentation, tutorials, and community resources",
   },
 ];
